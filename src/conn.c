@@ -52,10 +52,16 @@ void *AcceptCallbackHandleThread(void *sock)
     {
         memset(buf,'\0',BUFFER_SIZE);
         recv_length=recv(sockfd,buf,BUFFER_SIZE,0);
-        printf("%s\n",buf);
-    }while(recv_length==BUFFER_SIZE);
-    memset(buf,'\0',BUFFER_SIZE);
-    sprintf(buf,"%s","hi from server");
-    send(sockfd,buf,strlen(buf),0);
-    close(sockfd);
+        if(recv_length<=0)
+        {
+            close(sockfd);
+            return;
+        }
+        printf("sockfd:%d recv:%d %s\n",sockfd,recv_length,buf);
+    }while(1);
+    // }while(recv_length==BUFFER_SIZE);
+    // memset(buf,'\0',BUFFER_SIZE);
+    // sprintf(buf,"%s","hi from server");
+    // send(sockfd,buf,strlen(buf),0);
+    // close(sockfd);
 }
