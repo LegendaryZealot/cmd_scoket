@@ -9,7 +9,6 @@
 int main(int argc, char *argv[])
 {
     int sockfd;
-    int len;
     struct sockaddr_in address;
 
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -20,20 +19,12 @@ int main(int argc, char *argv[])
     if (-1==connect(sockfd, (struct sockaddr *)&address, sizeof(address)))
     {
         perror("oops:connect error!\n");
-        exit(1);
+        return -1;
     }
 
     char buf[128];
-    int bufSize=sizeof(buf);
     sprintf(buf,"%s","hi from client!");
     write(sockfd, buf,strlen(buf));
-    int readSzie;
-    do{
-        readSzie=read(sockfd,buf,bufSize-1);
-        printf("%s\n", buf);
-        buf[readSzie]='\0';
-    }while(readSzie==bufSize);
-    printf("client finished!\n");
     close(sockfd);
-    exit(0);
+    return 0;
 }
