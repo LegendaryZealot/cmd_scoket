@@ -3,6 +3,7 @@
 #include <sys/socket.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "conn.h"
 #include "sock.h"
