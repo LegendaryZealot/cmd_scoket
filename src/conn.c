@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <errno.h>
 
 #include "conn.h"
 #include "sock.h"
@@ -55,6 +56,7 @@ void *AcceptCallbackHandleThread(void *sock)
         recv_length=recv(sockfd,buf,BUFFER_SIZE,0);
         if(recv_length<=0)
         {
+            printf("sockfd:%d recv code:%d error:%s errno:%d\n",sockfd,recv_length,strerror(errno),errno);
             close(sockfd);
             return NULL;
         }
