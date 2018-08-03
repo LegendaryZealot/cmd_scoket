@@ -30,8 +30,8 @@ void SetSide(int pin1,int pin2,int value)
 {
     if(value==0)
     {
-        SetGPIO(pin1,value);
-        SetGPIO(pin2,value);
+        SetGPIO(pin1,LOW);
+        SetGPIO(pin2,LOW);
     }
     if(value==1)
     {
@@ -52,5 +52,5 @@ void SetCarWheel(int left,int right)
         InitGpio();
     }
     SetSide(25,24,left);
-    SetSide(23,22,left);
+    SetSide(23,22,right);
 }
