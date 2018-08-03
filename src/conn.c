@@ -48,6 +48,7 @@ void AcceptCallbackHandle(int sock)
 void *AcceptCallbackHandleThread(void *sock)
 {
     int sockfd=*(int *)sock;
+    printf("sockfd%d\n",sockfd);
     int recv_length=-1;
     char buf[BUFFER_SIZE];
     do
