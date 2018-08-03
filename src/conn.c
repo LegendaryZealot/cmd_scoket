@@ -48,8 +48,7 @@ void AcceptCallbackHandle(int sock)
             if(recv_length<=0)
             {
                 printf("sockfd:%d,recv code:%d,error:%s,errno:%d\n",sock,recv_length,strerror(errno),errno);
-                close(sockfd);
-                return NULL;
+                close(sock);
             }
             printf("sockfd:%d recv:%d %s\n",sock,recv_length,buf);
         }while(1);
