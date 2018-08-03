@@ -55,7 +55,7 @@ void AcceptCallbackHandle(int sock)
             }
             printf("sockfd:%d,recv:%d,%s\n",sock,recv_length,buf);
             int left,right;
-            sscanf(buf,"%d %d",&left,&right)
+            sscanf(buf,"%d %d",&left,&right);
             SetCarWheel(left,right);
         }while(1);
     }
