@@ -28,6 +28,8 @@ clean :
     
 veryclean : clean
 	-rm -f $(TARGET)
+
+test:all veryclean
   
 $(TARGET) : $(OBJS)
 	$(CC) $(CXXFLAGS) -o $@ $(OBJS) $(LDFLAGS) $(LIBS)

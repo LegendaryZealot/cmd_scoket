@@ -42,12 +42,12 @@ int runServerSock()
     {
         return -1;
     }
+    struct sockaddr_in client_addr;
+    socklen_t length = sizeof(client_addr);
+    int client = -1;
     while(1)
     {
-        struct sockaddr_in client_addr;
-        socklen_t length = sizeof(client_addr);
-        int client = accept(sockfd,(struct sockaddr*)&client_addr,&length);
-        if(-1!=client)
+        if(-1!=(client = accept(sockfd,(struct sockaddr*)&client_addr,&length)))
         {
             if(acceptCallBack)
             {
