@@ -1,6 +1,9 @@
 #include <wiringPi.h>
 #include "gpio.h"
 
+#define true 1
+#define false 0
+
 bool isGpioInit=false;
 
 void InitGpio()
