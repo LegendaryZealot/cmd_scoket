@@ -56,7 +56,7 @@ void *AcceptCallbackHandleThread(void *sock)
         recv_length=recv(sockfd,buf,BUFFER_SIZE,0);
         if(recv_length<=0)
         {
-            printf("sockfd:%d recv code:%d error:%s errno:%d\n",sockfd,recv_length,strerror(errno),errno);
+            printf("sockfd:%d,recv code:%d,error:%s,errno:%d\n",sockfd,recv_length,strerror(errno),errno);
             close(sockfd);
             return NULL;
         }
