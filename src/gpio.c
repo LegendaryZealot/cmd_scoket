@@ -4,7 +4,7 @@
 #define true 1
 #define false 0
 
-bool isGpioInit=false;
+int isGpioInit=false;
 
 void InitGpio()
 {
