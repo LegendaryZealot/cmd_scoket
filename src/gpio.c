@@ -9,6 +9,7 @@ int isGpioInit=false;
 void InitGpio()
 {
     wiringPiSetup();
+    printf("#####init gpio#####\n");
     isGpioInit=true;
 }
 

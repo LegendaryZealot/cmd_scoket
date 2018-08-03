@@ -55,7 +55,7 @@ void AcceptCallbackHandle(int sock)
             }
             printf("sockfd:%d recv:%d %s\n",sock,recv_length,buf);
             int left,right;
-            if(2!=sscanf("%d %d",&left,&right))
+            if(2!=sscanf(buf,"%d %d",&left,&right))
             {
                 printf("set whell error!\n");
             }
