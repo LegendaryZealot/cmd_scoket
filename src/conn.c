@@ -4,6 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
+#include <stdlib.h>
 
 #include "conn.h"
 #include "sock.h"
@@ -49,6 +50,7 @@ void AcceptCallbackHandle(int sock)
             {
                 printf("sockfd:%d,recv code:%d,error:%s,errno:%d\n",sock,recv_length,strerror(errno),errno);
                 close(sock);
+                exit(0);
             }
             printf("sockfd:%d recv:%d %s\n",sock,recv_length,buf);
         }while(1);
