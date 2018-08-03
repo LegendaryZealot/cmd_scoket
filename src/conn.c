@@ -53,15 +53,10 @@ void AcceptCallbackHandle(int sock)
                 close(sock);
                 exit(0);
             }
-            printf("sockfd:%d recv:%d %s\n",sock,recv_length,buf);
+            printf("sockfd:%d,recv:%d,%s\n",sock,recv_length,buf);
             int left,right;
-            if(2!=sscanf(buf,"%d %d",&left,&right))
-            {
-                printf("set whell error!\n");
-            }
-            else{
-                SetCarWheel(left,right);
-            }
+            sscanf(buf,"%d %d",&left,&right)
+            SetCarWheel(left,right);
         }while(1);
     }
 }
