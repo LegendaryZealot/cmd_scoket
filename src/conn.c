@@ -39,7 +39,7 @@ void AcceptCallbackHandle(int sock)
 {
     pthread_t *my_thread;
     int err;
-    if(0!=(err=pthread_create((pthread_t *)&my_thread,NULL,AcceptCallbackHandleThread,(void *)&sock)))
+    if(0!=(err=pthread_create((pthread_t *)&my_thread,NULL,AcceptCallbackHandleThread,&sock)))
     {
         printf("accept callback thread create error,code:%d\n",err);
     }
