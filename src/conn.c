@@ -8,6 +8,7 @@
 
 #include "conn.h"
 #include "sock.h"
+#include "gpio.h"
 
 #define BUFFER_SIZE 128
 
@@ -53,6 +54,14 @@ void AcceptCallbackHandle(int sock)
                 exit(0);
             }
             printf("sockfd:%d recv:%d %s\n",sock,recv_length,buf);
+            int left,right;
+            if(2!=sscanf("%d %d",&left,&right))
+            {
+                printf("set whell error!\n");
+            }
+            else{
+                SetCarWheel(left,right);
+            }
         }while(1);
     }
 }
