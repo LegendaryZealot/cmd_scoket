@@ -9,6 +9,10 @@ int isGpioInit=false;
 void InitGpio()
 {
     wiringPiSetup();
+    pinMode(25, OUTPUT);
+    pinMode(24, OUTPUT);
+    pinMode(23, OUTPUT);
+    pinMode(22, OUTPUT);
     printf("#####init gpio#####\n");
     isGpioInit=true;
 }
@@ -27,13 +31,13 @@ void SetSide(int pin1,int pin2,int value)
     }
     if(value==1)
     {
-        SetGPIO(pin1,1);
-        SetGPIO(pin2,0);
+        SetGPIO(pin1,HIGH);
+        SetGPIO(pin2,LOW);
     }
     if(value==-1)
     {
-        SetGPIO(pin1,0);
-        SetGPIO(pin2,1);
+        SetGPIO(pin1,LOW);
+        SetGPIO(pin2,HIGH);
     }
 }
 
