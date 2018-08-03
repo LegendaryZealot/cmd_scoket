@@ -13,6 +13,10 @@ void InitGpio()
     pinMode(24, OUTPUT);
     pinMode(23, OUTPUT);
     pinMode(22, OUTPUT);
+    SetGPIO(25,HIGH);
+    SetGPIO(24,LOW);
+    SetGPIO(22,HIGH);
+    SetGPIO(23,LOW);
     printf("#####init gpio#####\n");
     isGpioInit=true;
 }
